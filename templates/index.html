@@ -1,41 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Trash Cleanup Game</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>Trash Cleanup Game</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="game-container">
-        <img src="{{ url_for('static', filename='images/background.jpg') }}" class="background" />
-
-        <img src="{{ url_for('static', filename='images/banana.png') }}" class="trash" style="top: 200px; left: 100px;">
-        <img src="{{ url_for('static', filename='images/banana.png') }}" class="trash" style="top: 350px; left: 300px;">
-
-        <img src="{{ url_for('static', filename='images/cat.png') }}" class="cat" onclick="petCat(event)">
-    </div>
-
-    <script>
-        document.querySelectorAll('.trash').forEach(item => {
-            item.addEventListener('click', () => {
-                item.remove();
-            });
-        });
-
-        function petCat(e) {
-            const container = document.querySelector('.game-container');
-            const heart = document.createElement('img');
-            heart.src = "{{ url_for('static', filename='images/heart.png') }}";
-            heart.className = 'heart';
-            heart.style.top = (e.clientY - 30) + 'px';
-            heart.style.left = (e.clientX - 15) + 'px';
-
-            container.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 1000);
-        }
-    </script>
+  <div class="container">
+    <h1>Trash Cleanup Game</h1>
+    <p>Click the cat to spawn hearts! Drag the banana peel!</p>
+    <p>Start the game using the terminal or launcher.</p>
+  </div>
 </body>
 </html>
